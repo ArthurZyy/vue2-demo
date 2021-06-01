@@ -2,9 +2,7 @@
   <el-card class="box-card">
     <div slot="header" class="clearfix">
       <span>{{ cardName }}</span>
-      <el-button style="float: right; padding: 3px 0" type="text"
-        >操作按钮</el-button
-      >
+      <slot name="opItem"></slot>
     </div>
   </el-card>
 </template>
@@ -21,8 +19,8 @@ export default {
   },
   data() {
     return {
-      opType: 'edit'
-    }
+      opType: "edit",
+    };
   },
   computed: {
     cardName() {

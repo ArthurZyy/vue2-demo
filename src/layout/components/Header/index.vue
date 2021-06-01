@@ -1,7 +1,7 @@
 <template>
     <el-row>
         <el-col :span="20">
-            这里预留
+            绩效管理系统
         </el-col>
         <el-col :span="4">
             <user-dropdown></user-dropdown>
