@@ -2,8 +2,8 @@
   <div class="side-item">
     <template v-if="isChild(item.children, item)">
       <page-link :to="resolvePath(childItem.path)" v-if="childItem.meta">
-        <el-menu-item :index="childItem.path">
-          <i :class="childItem.meta.icon"></i> 
+        <el-menu-item :index="resolvePath(childItem.path)">
+          <i :class="childItem.meta.icon"></i>
           <span slot="title">{{ childItem.meta.title }}</span>
         </el-menu-item>
       </page-link>
@@ -25,8 +25,8 @@
 
 <script>
 import PageLink from "./PageLink";
-import { isAbsolutePath } from '@/utils/validate'
-import path from 'path'
+import { isAbsolutePath } from "@/utils/validate";
+import path from "path";
 export default {
   name: "SideBarItem",
   components: {
@@ -44,7 +44,7 @@ export default {
   methods: {
     isChild(children = [], item) {
       let newChildren = children.filter((child) =>
-        child.hidden? flase : true
+        child.hidden ? flase : true
       );
       if (newChildren.length === 1 && !item.meta) {
         this.childItem = newChildren[0];
@@ -57,17 +57,23 @@ export default {
       return false;
     },
     resolvePath(router) {
-       if (isAbsolutePath(router)) {
-        return router
+      if (isAbsolutePath(router)) {
+        return router;
       }
       if (isAbsolutePath(this.basePath)) {
-        return this.basePath
+        return this.basePath;
       }
-      return path.join(this.basePath, router)
+      return path.join(this.basePath, router);
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
 </style>
