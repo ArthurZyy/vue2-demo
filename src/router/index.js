@@ -13,7 +13,6 @@ export const currencyRoutes = [
     name: 'Login',
     component: () => import('@/views/Login'),
   },
-  // 404
   {
     path: '/',
     name: 'Layout',
@@ -39,13 +38,25 @@ export const currencyRoutes = [
         path: 'show-group',
         name: 'ShowGroup',
         component: () => import('@/views/year/ShowGroup'),
-        meta: { title: '查看年度绩效', icon: 'el-icon-s-data' }
+        meta: { title: '查看年度团队绩效', icon: 'el-icon-s-data' }
       },
       {
         path: 'edit-group',
         name: 'EditGroup',
         component: () => import('@/views/year/EditGroup'),
-        meta: { title: '修改年度绩效', icon: 'el-icon-s-data' }
+        meta: { title: '修改年度团队绩效', icon: 'el-icon-s-data' }
+      },
+      {
+        path: 'show-staff',
+        name: 'ShowStaff',
+        component: () => import('@/views/year/ShowStaff'),
+        meta: { title: '查看年度个人绩效', icon: 'el-icon-s-data' }
+      },
+      {
+        path: 'edit-staff',
+        name: 'EditGroup',
+        component: () => import('@/views/year/EditStaff'),
+        meta: { title: '修改年度个人绩效', icon: 'el-icon-s-data' }
       },
     ]
   },

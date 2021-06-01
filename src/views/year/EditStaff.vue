@@ -1,13 +1,13 @@
 <template>
     <edit-item
-        item-type="group"
+        item-type="staff"
     ></edit-item>
 </template>
 
 <script>
 import EditItem from '@/components/EditItem'
 export default {
-    name: 'YearEditGroup',
+    name: 'YearEditStaff',
     components: {
         EditItem
     },

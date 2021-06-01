@@ -8,7 +8,7 @@
           <my-header></my-header>
       </el-header>
       <el-main>
-          <m-main></m-main>
+          <page-main></page-main>
       </el-main>
     </el-container>
   </el-container>
@@ -17,13 +17,13 @@
 <script>
 import MyHeader from "./components/Header";
 import SideBar from "./components/SideBar";
-import MMain from "./components/MMain";
+import PageMain from "./components/PageMain";
 export default {
   name: "layout",
   components: { 
     MyHeader, 
     SideBar, 
-    MMain 
+    PageMain 
     },
 };
 </script>

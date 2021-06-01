@@ -1,13 +1,13 @@
 <template>
     <show-item
-        item-type="group"
+        item-type="staff"
     ></show-item>
 </template>
 
 <script>
 import ShowItem from '@/components/ShowItem'
 export default {
-    name: 'YearShowGroup',
+    name: 'YearShowStaff',
     components: {
         ShowItem
     },
