@@ -40,7 +40,7 @@ const actions = {
                 })
         })
     },
-    loginOut({commit}){
+    loginOut({ commit }) {
         commit('DEL_TOKEN')
         router.push({
             path: '/login',
@@ -49,23 +49,25 @@ const actions = {
             }
         })
     },
-    _login({ commit }, formData) {
+    _login({ commit }, formdatas) {
         return new Promise((resolve, reject) => {
-            login(formData)
+            login(formdatas)
                 .then(res => {
-                    if (res.data.success) {
-                        Message.success(res.data.msg)
-                        commit('SET_TOKEN', res.data.token)
-                    } else {
-                        Message.error(res.data.msg)
+                    if (res.code === 0) {
+                        if (res.data.success) {
+                            Message.success(res.data.msg)
+                            commit('SET_TOKEN', res.data.token)
+                        } else {
+                            Message.error(res.data.msg)
+                        }
+                        resolve(res)
                     }
-                    resolve(res)
                 })
                 .catch(error => {
                     reject(error)
                 })
         })
-    }
+    },
 }
 
 export default {

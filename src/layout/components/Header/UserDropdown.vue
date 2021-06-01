@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     handleCommand(command) {
-        this[command](); 
+        this[command]();
       },
     handleClick() {
       alert("button click");
