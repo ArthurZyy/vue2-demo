@@ -36,25 +36,25 @@ export const currencyRoutes = [
     children: [
       {
         path: 'show-group',
-        name: 'ShowGroup',
+        name: 'YearShowGroup',
         component: () => import('@/views/year/ShowGroup'),
         meta: { title: '查看年度团队绩效', icon: 'el-icon-s-data' }
       },
       {
         path: 'edit-group',
-        name: 'EditGroup',
+        name: 'YearEditGroup',
         component: () => import('@/views/year/EditGroup'),
         meta: { title: '修改年度团队绩效', icon: 'el-icon-s-data' }
       },
       {
         path: 'show-staff',
-        name: 'ShowStaff',
+        name: 'YearShowStaff',
         component: () => import('@/views/year/ShowStaff'),
         meta: { title: '查看年度个人绩效', icon: 'el-icon-s-data' }
       },
       {
         path: 'edit-staff',
-        name: 'EditGroup',
+        name: 'YearEditStaff',
         component: () => import('@/views/year/EditStaff'),
         meta: { title: '修改年度个人绩效', icon: 'el-icon-s-data' }
       },
@@ -87,7 +87,7 @@ export const currencyRoutes = [
       },
       {
         path: 'edit-staff',
-        name: 'EditGroup',
+        name: 'EditStaff',
         component: () => import('@/views/month/EditStaff'),
         meta: { title: '修改月度个人绩效', icon: 'el-icon-s-data' }
       },

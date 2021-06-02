@@ -19,6 +19,6 @@ export default {
   methods:{
       showRoute(){
       }
-  }
+  },
 };
 </script>

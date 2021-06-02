@@ -1,27 +1,30 @@
 <template>
   <div class="hello">
     <p>这里展示一下虚拟列表</p>
-    <div class="infinite-list-container">
-      <div class="infinite-list-phantom"></div>
-      <div class="infinite-list"></div>
-    </div>
+    <infinite-list :listData="listData"></infinite-list>
   </div>
 </template>
 
 <script>
+import InfiniteList from '@/components/InfiniteList'
 export default {
   name: "home",
-  data() {
+  components: {
+    InfiniteList
+  },
+  data(){
     return {
       listData: [],
-      itemSize: 0,
-      screenHeight: 0,
-      scrollTop: 0,
-    };
+      itemSize: 50
+    }
   },
-  computed: {
-    listHeight: () => this.listData.length * this.itemSize,
-    visibleCount: () => Math.ceil(this.screenHeight / this.itemSize),
+  created(){
+          let list = [], i=100
+          while(i>0){
+              list.push({id: i})
+              i--
+          }
+          this.listData = list
   }
 };
 </script>
