@@ -6,19 +6,22 @@
     </div>
     <period-select></period-select>
     <el-button type="primary" @click="getItemContent">查询</el-button>
-    <content-card v-for="content in contents" :key="content.iid" :content="content"></content-card>
+    <content-card v-for="content in textContents" :key="content.iid" :content="content"></content-card>
+    <file-card v-for="content in fileContents" :key="content.iid" :content="content"></file-card>
   </el-card>
 </template>
 
 <script>
 import { _getItemContent } from "@/api/item";
 import ContentCard from '@/components/ContentCard'
+import FileCard from '@/components/FileCard'
 import PeriodSelect from '@/components/PeriodSelect'
 export default {
   name: "ShowItem",
   components: {
     PeriodSelect,
-    ContentCard
+    ContentCard,
+    FileCard
   },
   inject: ["periodType"],
   props: {
@@ -31,14 +34,19 @@ export default {
     return {
       opType: "show",
       contents: [
-        {iid:1, name: '标题', value: '<p>内容</p>'},
-        {iid:2, name: '标题2', value: '<p>内容</p>'},
+        
       ]
     };
   },
   computed: {
     cardName() {
       return `${this.periodType} - ${this.itemType} - ${this.opType}`;
+    },
+    textContents(){
+      return this.contents.filter(c => c.type === 'text')
+    },
+    fileContents(){
+      return this.contents.filter(c => c.type === 'file')
     },
   },
   created() {
@@ -52,6 +60,7 @@ export default {
       })
         .then((res) => {
           let { item, contents } = res.data;
+          this.contents = contents
         })
         .catch((error) => {
           this.$message.error(error);
